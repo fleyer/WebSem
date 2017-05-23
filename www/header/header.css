@@ -8,3 +8,19 @@
   background-size: cover;
   -o-background-size: cover;
 }
+.nav,
+.navbar {
+  background-color: #26A69A;
+}
+.navbar-default .navbar-brand {
+  font-size: 1.2em;
+  color: #FAFAFA;
+}
+.navbar-default .nav > li > a {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #FAFAFA;
+}
+.navbar-default .nav > li > a:hover {
+  color: #777;
+}

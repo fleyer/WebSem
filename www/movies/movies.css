@@ -4,7 +4,6 @@
   flex-direction: column;
 }
 .flex {
-  background-color: lightgreen;
   flex: 1;
 }
 .thumbnail.second {
