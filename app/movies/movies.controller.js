@@ -18,6 +18,10 @@
 		var geocodeUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
 
 		var marker;
+
+		var urlMovieData = 'http://www.myapifilms.com/imdb/idIMDB';
+
+		
 		
 		FuzekiService.getCount().then(function(response){
 			var random = getRandomArbitrary(0,response.data.results.bindings[0].count.value-1);
@@ -35,6 +39,33 @@
 				map.panTo(loc);
 			});
 		});
+
+		getMovieData("Deadpool");
+
+		function serialize(params){
+			var str = Object.keys(params).map(function(key){ 
+			  return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]); 
+			}).join('&');
+		}
+
+		function getMovieData(name) {
+              var params = serialize(
+                  {
+                      token: '04ad435d-ca0f-4530-bc17-de724f76e602',
+                      title: name,
+                      limit: 1,
+                      language: 'fr'
+                  }
+              );
+
+              jQuery.ajax({
+                  url: urlMovieData + '?' + params,
+                  dataType: 'jsonp'
+              }).done(function(data) {
+              	console.log(data);
+              });
+		}
+
 		
 			/**
 		 * Returns a random number between min (inclusive) and max (exclusive)
